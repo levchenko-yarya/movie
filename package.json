@@ -1,0 +1,27 @@
+{
+  "name": "movie",
+  "version": "1.0.0",
+  "description": "information page of watched movies",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levchenko-yarya/movie.git"
+  },
+  "author": "levchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/levchenko-yarya/movie/issues"
+  },
+  "homepage": "https://github.com/levchenko-yarya/movie#readme"
+}
