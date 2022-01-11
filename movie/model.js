@@ -23,6 +23,10 @@ const Movie = db.define('movie', {
     url: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    list: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 
