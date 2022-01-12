@@ -4,7 +4,9 @@ exports.show = (req, res) => {
     Movie
         .findAll({raw: true})
         .then(movies => {
-            console.log(movies)
+            res.render('show.hbs', {
+                movies: movies
+            })
         })
         .catch(err => console.log(err))
 }
@@ -18,7 +20,9 @@ exports.get = (req, res) => {
         })
         .then(movie => {
             if (!movie) return
-            console.log(movie)
+            res.render('get.hbs', {
+                movie: movie
+            })
         })
         .catch(err => console.log(err))
 }
