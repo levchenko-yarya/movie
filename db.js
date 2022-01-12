@@ -1,10 +1,8 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize(
-    'postgres://localhost:5432/movie-db',
-    {
-        logging: false
-    }
-)
+const db = new Sequelize("moviedb", "root", "123456", {
+    dialect: "mysql",
+    host: "localhost"
+})
 
 module.exports = db
