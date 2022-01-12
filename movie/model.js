@@ -34,4 +34,4 @@ db.sync()
     .then(result => console.log(result))
     .catch(err => console.log(err))
 
-module.exports = db._model('Movie')
+module.exports = Movie

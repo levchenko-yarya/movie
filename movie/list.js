@@ -19,4 +19,4 @@ db.sync()
     .catch(err => console.log(err))
 
 
-module.exports = db._model('List')
+module.exports = List

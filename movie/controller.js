@@ -24,6 +24,7 @@ exports.get = (req, res) => {
 }
 
 exports.add = (req, res) => {
+    res.render('add.hbs')
 }
 
 exports.store = (req, res) => {

@@ -2,9 +2,10 @@
   "name": "movie",
   "version": "1.0.0",
   "description": "information page of watched movies",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "express": "^4.17.2",
+    "hbs": "^4.2.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.12.5"
   },
@@ -12,8 +13,8 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
