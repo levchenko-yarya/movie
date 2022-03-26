@@ -2,6 +2,12 @@
 
 ## information page of watched movies
 
+## docker infa
+
+`docker build -t 'yourname/repository' .` - build docker
+
+`docker run -d -p 'port:port' 'yourname/repository'` - run docker
+
 ### documentation
 
 GET `/movie` <- получить все фильмы
