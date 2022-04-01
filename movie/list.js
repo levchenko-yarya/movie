@@ -12,7 +12,15 @@ const List = db.define('list', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    genre_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     url: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    state_id: {
         type: Sequelize.STRING,
         allowNull: false
     }

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db')
+const List = require('./list')
 
 const Genre = db.define('genre', {
     id: {
@@ -12,6 +13,12 @@ const Genre = db.define('genre', {
         type: Sequelize.STRING,
         allowNull: false
     }
+})
+
+Genre.hasOne(List, {
+    as: 'list',
+    foreignKey: 'genre_id',
+    sourceKey: 'uuid'
 })
 
 db.sync()

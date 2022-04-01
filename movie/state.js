@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const List = require('./list')
 
 const State = df.define('state', {
     id: {
@@ -13,6 +14,8 @@ const State = df.define('state', {
         allowNull: false
     }
 })
+
+State.hasOne(List, {as: 'list'})
 
 db.sync()
     .then(result => console.log(result))
