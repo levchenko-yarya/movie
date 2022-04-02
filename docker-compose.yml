@@ -5,27 +5,30 @@ services:
     restart: unless-stopped
     env_file: ./.env
     environment:
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
     ports:
-      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes:
       # путь локальной папки бд
       - ./databases/mysql57:/var/lib/mysql
   app:
     depends_on:
       - mysqldb
-    build: ./home/app
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    image: movie-app
     restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
       - DB_HOST=mysqldb
-      - DB_USER=$MYSQLDB_USER
-      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
-      - DB_NAME=$MYSQL_DATABASE
-      - DB_PORT=$MYSQLDB_DOCKER_PORT
+      - DB_USER=${MYSQLDB_USER}
+      - DB_PASSWORD=${MYSQLDB_ROOT_PASSWORD}
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_PORT=${MYSQLDB_DOCKER_PORT}
     stdin_open: true
     tty: true
 volumes:
