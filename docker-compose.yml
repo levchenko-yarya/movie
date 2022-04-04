@@ -25,10 +25,10 @@ services:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
       - DB_HOST=mysqldb
-      - DB_USER=${MYSQLDB_USER}
-      - DB_PASSWORD=${MYSQLDB_ROOT_PASSWORD}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - DB_NAME=${MYSQL_DATABASE}
-      - DB_PORT=${MYSQLDB_DOCKER_PORT}
+      - DB_PORT=${MYSQL_DOCKER_PORT}
     stdin_open: true
     tty: true
 volumes:
