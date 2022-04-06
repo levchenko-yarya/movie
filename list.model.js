@@ -1,12 +1,14 @@
 module.exports = (sequelize, Sequelize) => {
-    const Genre = sequelize.define("genre", {
+    const List = sequelize.define("list", {
         fullname: {
+            type: Sequelize.STRING
+        },
+        url: {
             type: Sequelize.STRING
         },
         published: {
             type: Sequelize.BOOLEAN
         }
     })
-    
-    return Genre
+    return List
 }
