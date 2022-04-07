@@ -1,34 +1,19 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
-
-const List = db.define('list', {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
-    },
-    title: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    genre_id: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    url: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    state_id: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-})
-
-db.sync()
-    .then(result => console.log(result))
-    .catch(err => console.log(err))
-
-
-module.exports = List
+module.exports = (sequelize, Sequelize) => {
+    const List = sequelize.define('list', {
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+            allowNull: false
+        },
+        title: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        url: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+    })
+    return List
+}
