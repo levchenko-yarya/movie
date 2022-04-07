@@ -1,3 +1,5 @@
+const Genre = require('./movie/genre')
+
 module.exports = (sequelize, Sequelize) => {
     const List = sequelize.define("list", {
         fullname: {
@@ -10,5 +12,8 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.BOOLEAN
         }
     })
+
+    //List.hasMany(models.Genre, {as: 'genres', foreignKey: 'listId'})   
+
     return List
 }

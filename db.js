@@ -15,12 +15,17 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     }
 });
 
+const Genre = require('./movie/genre')(sequelize, Sequelize)
+const List = require('./list.model')(sequelize, Sequelize)
+
+Genre.hasMany(List)
+
 const db = {}
 
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
-db.list = require('./list.model')(sequelize, Sequelize)
-db.genre = require('./movie/genre')(sequelize, Sequelize)
+db.genre = Genre
+db.list = List
 
 module.exports = db
