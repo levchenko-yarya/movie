@@ -6,14 +6,17 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     dialect: dbConfig.dialect,
     port: dbConfig.port,
     operatorsAliases: false,
-  
+    define: {
+        charset: 'utf8',
+        collate: 'utf8_general_ci'
+    },
     pool: {
-      max: dbConfig.pool.max,
-      min: dbConfig.pool.min,
-      acquire: dbConfig.pool.acquire,
-      idle: dbConfig.pool.idle
+        max: dbConfig.pool.max,
+        min: dbConfig.pool.min,
+        acquire: dbConfig.pool.acquire,
+        idle: dbConfig.pool.idle
     }
-});
+})
 
 const Genre = require('./movie/genre.model')(sequelize, Sequelize)
 const State = require('./movie/state')(sequelize, Sequelize)
