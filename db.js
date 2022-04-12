@@ -15,7 +15,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     }
 });
 
-const Genre = require('./movie/genre')(sequelize, Sequelize)
+const Genre = require('./movie/genre.model')(sequelize, Sequelize)
 const State = require('./movie/state')(sequelize, Sequelize)
 const List = require('./movie/list')(sequelize, Sequelize)
 

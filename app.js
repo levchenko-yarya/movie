@@ -3,8 +3,9 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 //const movieRouter = require('./movie/router')
+//const genreRouter = require('./movie/genre.router')
 const app = express()
-//app.set('view engine', 'hbs')
+app.set('view engine', 'hbs')
 //app.use('/movie', movieRouter)
 
 let corsOptions = {
@@ -19,9 +20,12 @@ const db = require('./db')
 db.sequelize.sync();
 
 app.get('/', (req, res) => {
-    res.json({message: "hello"})
+    res.json({message: "hello mee"})
+    //res.render('genre/add.hbs')
     //res.send('Movie site - information page of watched movies')
 })
+
+require('./movie/genre.router')(app)
 
 //module.exports = app
 

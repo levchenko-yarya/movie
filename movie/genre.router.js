@@ -1,13 +1,15 @@
-const express = require('express')
-const controller = require('./genre.controller')
-const router = express.Router()
+module.exports = app => {
+    const controller = require('./genre.controller')
+    const router = require('express').Router()
 
-router.use('/:id', controller.get)
-router.use('/add', controller.add)
-router.use('/post', controller.store)
-router.use('/edit/:id', controller.edit)
-router.use('/update', controller.update)
-router.use('/delete/:id', controller.delete)
-router.use('/', controller.show)
 
-module.exports = router
+    router.get('/anime', controller.add)
+    router.post('/post', controller.store)
+    router.get('/edit/:id', controller.edit)
+    router.put('/update', controller.update)
+    router.delete('/delete/:id', controller.delete)
+    router.get('/:id', controller.get)
+    router.get('/', controller.show)
+
+    app.use('/genre', router)
+}

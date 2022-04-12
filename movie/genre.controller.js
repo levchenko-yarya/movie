@@ -1,4 +1,5 @@
-const Genre = require('./genre.model')
+const db = require('../db')
+const Genre = db.genre
 
 exports.show = (req, res) => {
     Genre.findAll({})
@@ -9,9 +10,7 @@ exports.show = (req, res) => {
 }
 
 exports.get = (req, res) => {
-    const id = req.params.id
-
-    Genre.findOne(id)
+    Genre.findByPk(req.params.id)
         .then(data => {
             res.send(data)
         })
@@ -23,7 +22,7 @@ exports.get = (req, res) => {
 }
 
 exports.add = (req, res) => {
-
+    res.render('genre/add.hbs')
 }
 
 exports.store = (req, res) => {
@@ -44,7 +43,7 @@ exports.store = (req, res) => {
 }
 
 exports.edit = (req, res) => {
-
+    res.render('genre/edit.hbs')
 }
 
 exports.update = (req, res) => {
@@ -72,10 +71,8 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    const id = req.params.id
-
     Genre.destroy({
-        where: {id: id}
+        where: {id: req.params.id}
     })
         .then(num => {
             if (num == 1) {
