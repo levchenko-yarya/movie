@@ -1,7 +1,7 @@
-const Movie = require('./model')
+const List = require('./list.model')
 
 exports.show = (req, res) => {
-    Movie
+    List
         .findAll({raw: true})
         .then(movies => {
             res.render('show.hbs', {
@@ -12,7 +12,7 @@ exports.show = (req, res) => {
 }
 
 exports.get = (req, res) => {
-    Movie
+    List
         .findOne({
             where: {
                 id: req.params.id
@@ -32,11 +32,10 @@ exports.add = (req, res) => {
 }
 
 exports.store = (req, res) => {
-    Movie
+    List
         .create({
             title: req.body.title,
             description: req.body.description,
-            genre: req.body.genre,
             url: req.body.url
         })
         .then(res => {
@@ -49,7 +48,7 @@ exports.edit = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    Movie
+    List
         .update({
             title: req.body.title,
             description: req.body.description,
@@ -63,7 +62,7 @@ exports.update = (req, res) => {
 }
 
 exports.destroy = (req, res) => {
-    Movie
+    List
         .destroy({
             where: {
                 id: req.params.id

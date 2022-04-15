@@ -1,5 +1,5 @@
 const express = require('express')
-const controller = require('./controller')
+const controller = require('./list.controller')
 const router = express.Router()
 
 router.use('/', controller.show)
