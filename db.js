@@ -18,9 +18,9 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     }
 })
 
-const Genre = require('./movie/genre.model')(sequelize, Sequelize)
-const State = require('./movie/state')(sequelize, Sequelize)
-const List = require('./movie/list')(sequelize, Sequelize)
+const Genre = require('./genre/genre.model')(sequelize, Sequelize)
+const State = require('./state/state.model')(sequelize, Sequelize)
+const List = require('./list/list.model')(sequelize, Sequelize)
 
 Genre.hasMany(List)
 State.hasMany(List)

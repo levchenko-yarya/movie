@@ -2,11 +2,11 @@ require('dotenv').config()
 
 const express = require('express')
 const cors = require('cors')
-//const movieRouter = require('./movie/router')
-//const genreRouter = require('./movie/genre.router')
+//const movieRouter = require('./list/router')
+//const genreRouter = require('./list/genre.router')
 const app = express()
 app.set('view engine', 'hbs')
-//app.use('/movie', movieRouter)
+//app.use('/list', movieRouter)
 
 let corsOptions = {
     origin: "http:localhost:3000"
@@ -25,7 +25,9 @@ app.get('/', (req, res) => {
     //res.send('Movie site - information page of watched movies')
 })
 
-require('./movie/genre.router')(app)
+require('./genre/genre.router')(app)
+require('./state/state.router')(app)
+require('./list/list.router')(app)
 
 //module.exports = app
 

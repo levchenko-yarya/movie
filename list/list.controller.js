@@ -1,4 +1,5 @@
-const List = require('./list.model')
+const db = require('../db')
+const List = db.list
 
 exports.show = (req, res) => {
     List

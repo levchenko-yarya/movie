@@ -1,13 +1,14 @@
-const express = require('express')
-const controller = require('./list.controller')
-const router = express.Router()
+module.exports = app => {
+    const controller = require('./list.controller')
+    const router = require('express').Router()
 
-router.use('/', controller.show)
-router.use('/:id', controller.get)
-router.use('/add', controller.add)
-router.use('/post', controller.store)
-router.use('/edit/:id', controller.edit)
-router.use('/update/:id', controller.update)
-router.use('/delete/:id', controller.destroy)
+    router.get('/add', controller.add)
+    router.get('/:id', controller.get)
+    router.post('/post', controller.store)
+    router.get('/edit/:id', controller.edit)
+    router.put('/update/:id', controller.update)
+    router.delete('/delete/:id', controller.destroy)
+    router.get('/', controller.show)
 
-module.exports = router
+    app.use('/list', router)
+}

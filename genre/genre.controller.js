@@ -28,7 +28,6 @@ exports.add = (req, res) => {
 exports.store = (req, res) => {
     const genre = {
         title: req.body.title,
-        published: req.body.published
     }
 
     Genre.create(genre)

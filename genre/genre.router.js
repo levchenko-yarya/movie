@@ -2,8 +2,7 @@ module.exports = app => {
     const controller = require('./genre.controller')
     const router = require('express').Router()
 
-
-    router.get('/anime', controller.add)
+    router.get('/add', controller.add)
     router.post('/post', controller.store)
     router.get('/edit/:id', controller.edit)
     router.put('/update', controller.update)
