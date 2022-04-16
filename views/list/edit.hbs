@@ -8,18 +8,18 @@
 </head>
 <body>
 
-    <div class="container" style="width: 600px">
+<div class="container" style="width: 600px">
 
-    <h1>ДОБАВЛЕНИЕ ФИЛЬМА</h1>
+    <h1>ИЗМЕНЕНИЕ ФИЛЬМА</h1>
 
-    <form action="post" method="post">
+    <form action="/update/{{this.movie.id}}" method="post">
 
         <div class="form-group">
             <label for="content">Название фильма</label>
-            <input class="form-control" type="text" name="title" placeholder="название">
+            <input class="form-control" type="text" name="title" value="title">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="content">Описание фильма</label>
             <textarea class="form-control" type="text" rows="4" name="description" placeholder="содержимое" style="resize: none"></textarea>
         </div>
@@ -27,13 +27,14 @@
         <div class="form-group">
             <label for="content">Жанр фильма</label>
             <input class="form-control" type="text" name="genre" placeholder="жанр фильма">
-        </div>
+        </div>-->
 
         <div class="form-group">
             <label for="content">Ссылка на трейлер фильма</label>
-            <input class="form-control" type="text" name="url" placeholder="ссылка на трейлер">
+            <input class="form-control" type="text" name="url" value="url">
         </div>
 
+        <input type="hidden" name="_method" value="PUT">
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
 
