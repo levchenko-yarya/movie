@@ -1,12 +1,15 @@
 FROM node:14-alpine
 
-WORKDIR /app
+WORKDIR /server
 
 COPY package*.json ./
 
 RUN npm install
 
+
 COPY . .
+
+#RUN npx sequelize-cli db:seed:all
 
 EXPOSE 3000
 
